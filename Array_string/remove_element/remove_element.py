@@ -5,15 +5,12 @@ class Solution(object):
         :type val: int
         :rtype: int
         """
-        counter = len(nums)
-        indexes = []
-        for i, v in enumerate(nums):
-            if v == val:
-                counter -= 1
-                indexes.append(i)
-        for index in sorted(indexes, reverse=True):
-            del nums[index]
-        print(nums)
+        counter = 0
+        for index, value in enumerate(nums):
+            if value != val:
+                nums[counter]=nums[index]
+                counter += 1
+        print(nums[:counter])
         return counter
 
 
