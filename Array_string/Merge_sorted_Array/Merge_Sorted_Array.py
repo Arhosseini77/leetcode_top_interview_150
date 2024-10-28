@@ -7,6 +7,7 @@ class Solution(object):
         :type n: int
         :rtype: None Do not return anything, modify nums1 in-place instead.
         """
+
         p1, p2, p = m - 1, n - 1, m + n - 1
 
         while p1 >= 0 and p2 >= 0:
