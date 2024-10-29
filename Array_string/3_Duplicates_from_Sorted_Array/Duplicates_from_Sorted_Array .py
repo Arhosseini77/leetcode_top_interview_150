@@ -5,11 +5,8 @@ class Solution(object):
         :rtype: int
         """
         counter = 0
+        temp = None
         for index, value in enumerate(nums):
-            if index == 0:
-                nums[counter] = nums[index]
-                counter += 1
-                temp = value
             if value != temp:
                 nums[counter] = nums[index]
                 counter += 1
