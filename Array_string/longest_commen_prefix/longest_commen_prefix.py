@@ -11,6 +11,7 @@ class Solution:
 
         # Start with the first string as the initial prefix
         prefix = strs[0]
+        print("initial ", prefix)
 
         # Iterate through the remaining strings
         for s in strs[1:]:
@@ -21,7 +22,6 @@ class Solution:
                 # If there's no common prefix
                 if not prefix:
                     return ""
-
         return prefix
 
 
