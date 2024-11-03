@@ -6,12 +6,11 @@ class Solution(object):
         :rtype: None Do not return anything, modify nums in-place instead.
         """
         for i in range(k):
-            temp = nums[-1]
-            nums.pop(-1)
-            nums.insert(0, temp)
-        return nums
+            nums.insert(0, nums.pop(-1))
+
 
 solution = Solution()
-nums = [-1,-100,3,99]
-k = 2
-print(solution.rotate(nums, k))
+nums = [1, 2, 3, 4, 5, 6, 7]
+k = 3
+solution.rotate(nums, k)
+print(nums)
