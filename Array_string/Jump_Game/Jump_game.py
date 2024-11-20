@@ -1,11 +1,3 @@
-def match_index(index, nums):
-    match_idx = []
-    for i in range(1, nums[index] + 1):
-        if index + i < len(nums):
-            match_idx.append(index + i)
-    return match_idx
-
-
 class Solution(object):
     def canJump(self, nums):
         """
@@ -13,19 +5,15 @@ class Solution(object):
         :rtype: bool
         """
         target = len(nums) - 1
-        if target == 0 and nums:
-            return True
+        max_reachable = 0
 
-        match_idx = match_index(0, nums)
-
-        while match_idx:
-            if target in match_idx:
+        for i, num in enumerate(nums):
+            if i > max_reachable:
+                return False
+            max_reachable = max(max_reachable, i + num)
+            if max_reachable >= target:
                 return True
-            else:
-                match_idx_tmp = []
-                for elm in match_idx:
-                    match_idx_tmp += (match_index(elm, nums))
-            match_idx = list(set(match_idx_tmp))
+
         return False
 
 
@@ -33,5 +21,5 @@ class Solution(object):
 solution = Solution()
 
 # Example test
-nums = [3,2,1,0,4]
+nums = [2, 5, 0, 0, 4]
 print(solution.canJump(nums))
